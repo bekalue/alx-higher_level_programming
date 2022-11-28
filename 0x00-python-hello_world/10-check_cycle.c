@@ -1,22 +1,33 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 #include "lists.h"
-/**
- * check_cycle - checks if the linked list is cyclic or not
- * @list: pointer to the head of the list.
- *
- * Return: (1) if it is cyclic, otherwise (0).
- */
-int check_cycle(listint_t *list)
-{
-	listint_t *node = list->next;
 
-	if (list && list->next)
+/**
+  * check_cycle - checks for a cycle in a linked list
+  *
+  * @head: the first node in the list
+  * Return: 0 if no cycle, 1 if cycle found
+  */
+int check_cycle(listint_t *head)
+{
+	listint_t *slow, *fast;
+	int flag = 0;
+
+	if (head == NULL)
+		return (0);
+
+	slow = fast = head;
+
+	while (fast)
 	{
-		while (node != NULL && node != list)
-			node = node->next;
-		if (node == NULL)
-			return (0);
-		else if (node == list)
+		flag++;
+		fast = fast->next;
+		if (flag % 2 == 0)
+			slow = slow->next;
+		if (fast == slow)
 			return (1);
 	}
+
 	return (0);
 }
