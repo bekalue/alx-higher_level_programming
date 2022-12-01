@@ -16,4 +16,4 @@ if __name__ == "__main__":
         i += 1
         if i == 1:
             continue
-        print("{}: {}".format(i, word))
+        print("{}: {}".format(i - 1, word))
