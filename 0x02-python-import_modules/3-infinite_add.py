@@ -5,7 +5,7 @@ if __name__ == "__main__":
     if num == 1:
         print("0")
         exit()
-    it = 0
+    it, result = 0, 0
     for numbers in sys.argv:
         if it == 1:
             continue
