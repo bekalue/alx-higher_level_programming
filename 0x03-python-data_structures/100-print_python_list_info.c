@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include "python.h"
+#include <python.h>
 
 /**
  * print_python_list_info - prints some basic info about a python list object
