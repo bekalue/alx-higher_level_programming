@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
-#include <python.h>
+#include <Python.h>
+#define PY_SSIZE_T_CLEAN
 
 /**
  * print_python_list_info - prints some basic info about a python list object
