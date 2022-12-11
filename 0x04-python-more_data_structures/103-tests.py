@@ -1,8 +1,8 @@
 import ctypes
 
 '''
-                output
-               --------
+                output when run using ./103-tests.py
+               --------------------------------------
 
 [.] bytes object info
   size: 5
