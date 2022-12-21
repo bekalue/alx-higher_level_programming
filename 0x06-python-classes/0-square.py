@@ -1,4 +1,4 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/phyton3
 
 """a module that contain Square class"""
 
