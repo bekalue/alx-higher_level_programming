@@ -3,6 +3,7 @@
 
 
 class Square:
+    """square class"""
 
     def __init__(self, value=0, position=(0, 0)):
         """initializer"""
