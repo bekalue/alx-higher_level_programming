@@ -1,10 +1,22 @@
 #!/usr/bin/python3
 
-"""A Square class"""
+"""A module that contain Square class
+"""
 
 
 class Square:
-    """square with the methods"""
+    """Represents a 2D polygon with 4 sizes and perpendicular sides
+    
+    Args:
+         size (int): a parameter that intializes ``__size`` private instance attribute
+         
+    Attributes:
+         __size (int): a private intstance attribute.
+    
+    Raises:
+         TypeError: if ``__size`` attribute is not integer type.
+         ValueError: if ``__size`` attribute is less than zero.
+    """
     def __init__(self, size=0):
         if type(size) != int:
             raise TypeError('size must be an integer')
