@@ -1,11 +1,22 @@
 #!/usr/bin/python3
-"""a square class"""
+"""A module that contain square class
+"""
 
 
 class Square:
-    """with its methods"""
+    """ Represnts a 2D polygon with 4 perpendicular sides
+    
+    Args:
+          size (int): a parameter that intializes private instance attribute called __size.
+     
+    Attributes:
+          __size (int): a private intsance attribute.
+    
+    Raises:
+          TypeError: if __size is not integer type
+          ValueError: if __size is less than zero.
+    """
     def __init__(self, size=0):
-        """constructor method"""
         if type(size) != int:
             raise TypeError('size must be an integer')
         elif size < 0:
@@ -15,6 +26,10 @@ class Square:
 
     def area(self):
 
-        """return area"""
+        """Computes area of the square
+        
+        Returns:
+               int: area of the square
+        """
 
         return (self.__size ** 2)
