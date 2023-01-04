@@ -3,6 +3,7 @@
 A module for working with rectangles.
 """
 
+
 class Rectangle:
     """
     A rectangle class
