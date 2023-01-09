@@ -7,8 +7,8 @@ to standard output.
 
 def say_my_name(first_name, last_name=""):
     """
-    A function that prints a string which is `My name is <first name> <last name>`
-    to standard output.
+    A function that prints a string which is
+    `My name is <first name> <last name>` to standard output.
 
     Args:
         first_name (str): a parameter for the first name.
