@@ -23,12 +23,5 @@ def print_square(size):
     elif size < 0:
         raise ValueError('size must be >= 0')
     else:
-        if size == 0:
-            print()
-        elif size == 1:
-            print('#')
-        else:
-            for i in range(size):
-                for j in range(size):
-                    print('#', end='')
-                print()
+        for i in range(size):
+            print('{}'.format('#' * size))
