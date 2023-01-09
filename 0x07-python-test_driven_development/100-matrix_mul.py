@@ -31,7 +31,8 @@ def get_matrix_sizes(matrix1, matrix2, name1, name2):
             lambda txt: '{} should contain only integers or \
 floats'.format(txt),
             lambda txt: 'each row of {} must be of the same size'.format(txt),
-            lambda _list: all(map(lambda n: isinstance(n, (int, float)), _list))
+            lambda _list:
+            all(map(lambda n: isinstance(n, (int, float)), _list))
             )
     size0 = [0, 0]     # number of rows and columns for matrix1
     size1 = [0, 0]     # number of rows and columns for matrix2
