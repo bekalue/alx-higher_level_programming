@@ -20,19 +20,22 @@ class Rectangle(BaseGeometry):
             width (int): The width of the rectangle.
             height (int): The height of the rectangle.
         """
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
+        super().__init__()
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
 
     def area(self):
         """
-        Implements the base class method in Computing the area of this geometry.
+        Implements the base class method in Computing
+        the area of this geometry.
 
         Returns:
             int: The area of this geometry object.
         """
         return self.__width * self.__height
+
     def __str__(self):
         """
         Returns a string representation of this geometry.
