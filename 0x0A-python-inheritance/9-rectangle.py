@@ -43,4 +43,4 @@ class Rectangle(BaseGeometry):
         Returns:
             str: A string representation of this geometry object.
         """
-        return '[Rectangle] <{}>/<{}>'.format(self.__width, self.__height)
+        return '[Rectangle] <{:d}>/<{:d}>'.format(self.__width, self.__height)
