@@ -13,4 +13,6 @@ class MyList(list):
         """
         Prints this list in a sorted order.
         """
-        print(sorted(self))
+        sortted_list = sorted(self)
+        print(sortted_list)
+        del sortted_list
