@@ -36,4 +36,4 @@ class Square(Rectangle):
         """
         prints a string when a str(self)
         """
-        return '[Square] <{0:d}>/<{0:d}>'.format(self.__size)
+        return '[Square] {0:d}/{0:d}'.format(self.__size)
