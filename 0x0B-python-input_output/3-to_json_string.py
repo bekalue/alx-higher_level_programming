@@ -18,4 +18,4 @@ def to_json_string(my_obj):
         str: A JSON representation of the object if possible,
         otherwise an exception is thrown.
     """
-    return json.dumps(my_obj, sort_keys = True)
+    return json.dumps(my_obj, sort_keys=True)
