@@ -89,3 +89,12 @@ class Rectangle(Base):
         h_val = '#' * self.width
         print('\n' * self.y, end='')
         print('{:s}{:s}\n'.format(h_off, h_val) * self.height, end='')
+
+    def __str__(self):
+        """
+        Creates a string representation of this polygon.
+
+        Returns:
+            str: A string representation of this polygon.
+        """
+        return '[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}'.format(self.id, self.x, self.y, self.width, self.height)
