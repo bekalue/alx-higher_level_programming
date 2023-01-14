@@ -45,3 +45,35 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Updates the attributes of this polygon.
+
+        Args:
+            args (tuple): A tuple of non-keyword arguments.
+            kwargs (dict): A dictionary of keyword arguments.
+        """
+        attributes = ('id', 'size', 'x', 'y')
+
+        for key, value in zip(attributes, args):
+            setattr(self, key, value)
+
+        if ((args is None or len(args) == 0) and type(kwargs) is dict):
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Creates a dictionary representation of this polygon.
+
+        Returns:
+            dict: A dictionary representation of this polygon.
+        """
+        to_dict = {
+                'id': self.id,
+                'x': self.x,
+                'size': self.width,
+                'y': self.y
+                }
+        return to_dict
