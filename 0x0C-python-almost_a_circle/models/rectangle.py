@@ -1,8 +1,16 @@
 #!/usr/bin/python3
+"""Contains classes for working with Polygons.
+"""
+
 
 from .base import Base
 
+
 class Rectangle(Base):
+    """Represents a polygon with 4 perpendicular and
+    two pairs of equal sides.
+    """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes a new rectangle object.
         Args:
@@ -55,6 +63,7 @@ class Rectangle(Base):
         """Gets or sets the horizontal position of this rectangle.
         """
         return self.__x
+
     @x.setter
     def x(self, value):
         """Gets or sets the horizontal position of this rectangle.
@@ -64,11 +73,13 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError('x must be >= 0')
         self.__x = value
+
     @property
     def y(self):
         """Gets or sets the vertical position of this rectangle.
         """
         return self.__y
+
     @y.setter
     def y(self, value):
         """Gets or sets the vertical position of this rectangle.
@@ -97,7 +108,8 @@ class Rectangle(Base):
         Returns:
             str: A string representation of this polygon.
         """
-        return '[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}'.format(self.id, self.x, self.y, self.width, self.height)
+        return '[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}'.format(
+                self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """
