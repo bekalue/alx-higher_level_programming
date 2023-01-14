@@ -98,3 +98,16 @@ class Rectangle(Base):
             str: A string representation of this polygon.
         """
         return '[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}'.format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """
+        Updates the attributes of this polygon.
+
+        Args:
+            args (tuple): A tuple of non-keyword arguments.
+            kwargs (dict): A dictionary of keyword arguments.
+        """
+
+        attributes = ('id', 'width', 'height', 'x', 'y')
+        for key, value in zip(attributes, args):
+            setattr(self, key, value)
