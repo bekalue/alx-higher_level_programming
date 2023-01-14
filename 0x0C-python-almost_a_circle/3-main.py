@@ -4,11 +4,24 @@ from models.rectangle import Rectangle
 
 if __name__ == "__main__":
 
-    r1 = Rectangle(3, 2)
-    print(r1.area())
+    try:
+        Rectangle(10, "2")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-    r2 = Rectangle(2, 10)
-    print(r2.area())
+    try:
+        r = Rectangle(10, 2)
+        r.width = -10
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
 
-    r3 = Rectangle(8, 7, 0, 0, 12)
-    print(r3.area())
+    try:
+        r = Rectangle(10, 2)
+        r.x = {}
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    try:
+        Rectangle(10, 2, 3, -1)
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))

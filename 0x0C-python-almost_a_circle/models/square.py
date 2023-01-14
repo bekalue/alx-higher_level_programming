@@ -1,20 +1,17 @@
 #!/usr/bin/python3
 """Contains classes for working with Polygons.
 """
-
-
 from .rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """
-    Represents a polygon with 4 perpendicular and
+    """Represents a polygon with 4 perpendicular and
     equal sides.
     """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """
-        Initializes a new square object.
+        """Initializes a new square object.
+
         Args:
             size (int): The width and height of this square.
             x (int): The horizontal position of this square.
@@ -22,16 +19,6 @@ class Square(Rectangle):
             id (int): The id of this square.
         """
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        """
-        Creates a string representation of this polygon.
-
-        Returns:
-            str: A string representation of this polygon.
-        """
-        return '[Square] ({}) {:d}/{:d} - {:d}'.format(
-                self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
@@ -46,34 +33,48 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
+    def __str__(self):
+        """Creates a string representation of this polygon.
+
+        Returns:
+            str: A string representation of this polygon.
         """
-        Updates the attributes of this polygon.
+        parts = (
+            self.id,
+            self.x,
+            self.y,
+            self.width
+        )
+        res = '[Square] ({}) {:d}/{:d} - {:d}'.format(
+            parts[0], parts[1], parts[2], parts[3]
+        )
+        return res
+
+    def update(self, *args, **kwargs):
+        """Updates the attributes of this polygon.
 
         Args:
             args (tuple): A tuple of non-keyword arguments.
             kwargs (dict): A dictionary of keyword arguments.
         """
-        attributes = ('id', 'size', 'x', 'y')
-
-        for key, value in zip(attributes, args):
-            setattr(self, key, value)
-
-        if ((args is None or len(args) == 0) and type(kwargs) is dict):
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+        attrs = ('id', 'size', 'x', 'y')
+        for key, val in zip(attrs, args):
+            setattr(self, key, val)
+        if (type(args) is None or len(args) == 0) and (type(kwargs) is dict):
+            for key, val in kwargs.items():
+                if key in attrs:
+                    setattr(self, key, val)
 
     def to_dictionary(self):
-        """
-        Creates a dictionary representation of this polygon.
+        """Creates a dictionary representation of this polygon.
 
         Returns:
             dict: A dictionary representation of this polygon.
         """
-        to_dict = {
-                'id': self.id,
-                'x': self.x,
-                'size': self.width,
-                'y': self.y
-                }
-        return to_dict
+        res = {
+            'id': self.id,
+            'size': self.size,
+            'x': self.x,
+            'y': self.y
+        }
+        return res

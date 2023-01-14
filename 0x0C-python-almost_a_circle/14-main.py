@@ -1,14 +1,17 @@
 #!/usr/bin/python3
-""" 14-main """
-from models.base import Base
-from models.rectangle import Rectangle
+""" 13-main """
+from models.square import Square
 
 if __name__ == "__main__":
 
-    r1 = Rectangle(10, 7, 2, 8)
-    dictionary = r1.to_dictionary()
-    json_dictionary = Base.to_json_string([dictionary])
-    print(dictionary)
-    print(type(dictionary))
-    print(json_dictionary)
-    print(type(json_dictionary))
+    s1 = Square(10, 2, 1)
+    print(s1)
+    s1_dictionary = s1.to_dictionary()
+    print(s1_dictionary)
+    print(type(s1_dictionary))
+
+    s2 = Square(1, 1)
+    print(s2)
+    s2.update(**s1_dictionary)
+    print(s2)
+    print(s1 == s2)
