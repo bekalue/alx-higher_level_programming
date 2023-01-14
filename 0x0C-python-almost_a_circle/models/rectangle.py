@@ -99,7 +99,7 @@ class Rectangle(Base):
         """
         return '[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}'.format(self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Updates the attributes of this polygon.
 
@@ -109,5 +109,10 @@ class Rectangle(Base):
         """
 
         attributes = ('id', 'width', 'height', 'x', 'y')
+
         for key, value in zip(attributes, args):
             setattr(self, key, value)
+
+        if ((args is None or len(args) == 0) and (type(kwargs) is dict)):
+            for key, value in kwargs.items():
+                setattr(self, key, value)
