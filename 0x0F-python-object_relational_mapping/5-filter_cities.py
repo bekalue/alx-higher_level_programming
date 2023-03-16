@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-import sys
 import MySQLdb
+import sys
+
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
@@ -11,11 +12,13 @@ if __name__ == "__main__":
             db=sys.argv[3]
             )
     cur = db.cursor()
+    state_name = sys.argv[4]
     cur.execute(
-            'SELECT cities.id, cities.name, states.name FROM cities ' +
-            'INNER JOIN states ON cities.state_id = states.id ORDER ' +
-            'BY cities.id ASC;'
+            'SELECT cities.name FROM cities INNER JOIN states ' +
+            'ON cities.state_id = states.id WHERE states.name=%s ' +
+            'ORDER BY cities.id ASC;', [state_name]
             )
-    [print(results) for results in cur.fetchall()]
+    result = cur.fetchall()
+    print(', '.join(map(lambda x: x[0], result)))
     cur.close()
     db.close()
