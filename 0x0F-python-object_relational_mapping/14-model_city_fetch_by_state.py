@@ -12,8 +12,11 @@ if __name__ == '__main__':
     user = sys.argv[1]
     passwd = sys.argv[2]
     db = sys.argv[3]
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(user, passwd, db)
-            )
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        user,
+        passwd,
+        db)
+        )
     State.cities = relationship('City', back_populates='state')
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)()
