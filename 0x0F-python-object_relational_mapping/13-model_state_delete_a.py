@@ -12,11 +12,11 @@ if __name__ == '__main__':
     engine = create_engine("mysql://{]:{}@localhost:3303/{}".format(
         sys.argv[1],
         sys.argv[2],
-        sys.argv[3])
+        sys.argv[3]), pool_pre_ping=True
         )
     Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)()
-    session.query(State).filter(State.name.like('%a%')).delete(
-            synchronize_session=False
-            )
+    for state in session.query(State):
+        if 'a' in state.name:
+            session.delete(state)
     session.commit()
