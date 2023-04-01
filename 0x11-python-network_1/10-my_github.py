@@ -14,7 +14,7 @@ if __name__ == '__main__':
                 'Username': username,
                 'Authorization': 'Bearer {}'.format(password_token),
                 }
-        response = request.get(user_url, headers=headers)
+        response = requests.get(user_url, headers=headers)
         if response.status_code == 200:
             user = response.json()
             if user['login'] == username:
