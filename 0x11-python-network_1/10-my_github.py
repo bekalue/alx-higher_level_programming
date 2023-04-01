@@ -10,7 +10,7 @@ if __name__ == '__main__':
         username = sys.argv[1]
         password_token = sys.argv[2]
         headers = {
-                'Accept': 'application/vnd.github.v3+json'
+                'Accept': 'application/vnd.github.v3+json',
                 'Username': username,
                 'Authorization': 'Bearer {}'.format(password_token),
                 }
